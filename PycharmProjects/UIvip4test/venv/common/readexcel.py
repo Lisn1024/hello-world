@@ -39,4 +39,4 @@ class readExcel(object):
 if __name__ == '__main__':
     re = readExcel()
     #print(re.read())
-    print(re.read('HomeTest','test_sousuo'))
+    print(re.read('HomeTest','test_sousuo2'))

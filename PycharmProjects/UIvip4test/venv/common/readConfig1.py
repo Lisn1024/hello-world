@@ -13,10 +13,8 @@ class ReadConfig(object):
         self.cf = configparser.ConfigParser()
         self.cf.read(r'..\config.ini', encoding="utf-8-sig")
 
-    def get_email(self,name):
-        return self.cf.get("EMAIL",name)
-
-
+    def get_email(self,config):
+        return self.cf.get("EMAIL",config)
 
 
 if __name__ == '__main__':

@@ -18,8 +18,8 @@ def Driver():
     }
         # 定义driver
     driver  = webdriver.Remote("http://127.0.0.1:4723/wd/hub",desire_caps)
-    print("启动中，等待6秒")
-    time.sleep(6)
+    print("启动中，等待15秒")
+    time.sleep(15)
     return driver
 
 if __name__ == '__main__':

@@ -11,23 +11,24 @@ def sendMail():
     #第一步：配置邮箱属性
 
     # 发送邮箱
-    sender = 'lishengnantest@163.com'
+    sender = 'lisn1024@126.com'
     # 接收邮箱
-    receiver = '18332300241@163.com'
+    receiver = '1473147172@qq.com'
 
     # 发送邮箱服务器
-    smtpserver = 'smtp.163.com'
+    smtpserver = 'smtp.126.com'
     # 发送邮箱用户/密码
-    username = 'lishengnantest'
-    password = 'l19921024'
+    username = 'lisn1024'
+    #SMTP服务在客户端开启后，会给一个登录授权码，在第三方登录时登录密码需要填写授权码
+    password = 'UVUVZLOALHEAAQQB'
     #content = 'Python 邮件发送测试...'
     # 发送邮件主题
-    t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    subject = '自动化测试结果_' + t
+    #t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    subject = '自动化测试结果'
     content = 'Python 邮件发送测试...'
     #第二步： 组装邮件内容和标题，中文需参数‘utf-8’，单字节字符不需要
-    msg = MIMEText(content, 'plain', 'utf-8')
-    msg['Subject'] = Header(subject, 'utf-8')
+    msg = MIMEText(content)
+    #msg['Subject'] = Header(subject, 'utf-8')
     msg["subject"] = subject
     msg['From'] = sender
     msg['To'] = receiver
@@ -42,12 +43,11 @@ def sendMail():
         s.login(username, password)
         #4--设置发件人，收件人，邮件内容
         s.sendmail(sender, receiver, msg.as_string())
+        print("成功")
 
+    except Exception as e:
+        print("失败")
 
-    except:
-        print("邮件发送失败！")
-    else:
-        print("邮件发送成功！")
     finally:
         s.quit()
 
